@@ -4,6 +4,12 @@
     "maintainer": "WatsonJay",
     "processor": "RP2040",
     "bootloader": "rp2040",
+    "eeprom": {
+        "driver": "wear_leveling",
+        "wear_leveling": {
+            "driver": "rp2040_flash"
+        }
+    },
     "usb": {
         "device_version": "1.0.0",
         "pid": "0x6063",
@@ -12,6 +18,7 @@
     "diode_direction": "ROW2COL",
     "matrix_pins": {
         "cols": ["GP12", "GP13", "GP14", "GP15"],
-        "rows": ["GP8", "GP9", "GP10", "GP11"]
+        "rows": ["GP8", "GP9", "GP10", "GP11"],
+        "custom_lite": true
     }
 }
