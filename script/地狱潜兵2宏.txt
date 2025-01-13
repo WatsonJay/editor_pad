@@ -1,0 +1,142 @@
+/*---- 常备技能 ----*/
+增援↑ ↓ → ← ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+SOS信标↑ ↓ → ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+重新补给↓ ↓ ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+
+飞鹰重新武装↑ ↑ ← ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+绝地弹↓ ↑ ← ↓ ↑ → ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+SEAF大炮→ ↑ ↑ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+上传资料← → ↑ ↑ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+探勘钻头↓ ↓ ← → ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+地震探测器↑ ↑ ← → ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+超级地球旗↓ ↑ ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 爱国行政中心 ----*/
+机枪↓ ← ↓ ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+反器材步枪↓ ← → ↑ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轻机枪↓ ← ↓ ↑ ↑ ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+反坦克消耗品↓ ↓ ← ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+无后座力步枪↓ ← → → ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+火焰喷射器↓ ← ↑ ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+机炮↓ ← ↓ ↑ ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+磁轨炮↓ → ↓ ↑ ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+长矛↓ ↓ ↑ ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+重机枪↓ ← ↑ ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+空爆火箭发射器↓ ↑ ↑ ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+MLS-4X突击兵↓ ← ↑ ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 轨道大炮 ----*/
+轨道格林机枪弹幕→ ↓ ← ↑ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道空爆打击→ → →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道120mm高爆弹弹幕→ → ↓ ← → ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道380mm高爆弹弹幕→ ↓ ↑ ↑ ← ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道步行者弹幕→ ↓ → ↓ → ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道雷射→ ↓ ↑ → ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道电磁炮攻击→ ↑ ↓ ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 机库 ----*/
+飞鹰机枪扫射↑ → →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰空袭↑ → ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰集束炸弹↑ → ↓ ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰凝固汽油弹空袭↑ → ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+弹跳背包↓ ↑ ↑ ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰烟雾突袭↑ → ↑ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰110mm火箭荚枪↑ → ↑ ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+飞鹰500kg炸弹↑ → ↓ ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 舰桥 ----*/
+轨道精准攻击→ → ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道毒气攻击→ → ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道电磁干扰打击→ → ← ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+轨道烟雾空袭→ → ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+重机枪炮台↓ ↑ ← → → ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+防护罩生成中继器↓ ↓ ← → ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+特斯拉塔↓ ↑ → ↑ ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 工程湾 ----*/
+反步兵雷区↓ ← ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+补给背包↓ ← ↓ ↑ ↑ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+榴弹发射器↓ ← ↑ ← ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+雷射大炮↓ ← ↓ ↑ ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+燃烧地雷↓ ← ← ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+「护卫犬」漫游者↓ ↑ ← ↑ → →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+弹道防护罩背包↓ ← ↑ ↑ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+电弧发射器↓ → ↓ ↑ ← ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+防护罩生成背包↓ ↑ ← → ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+类星体大炮↓ ↓ ↑ ← →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+反坦克地雷↓ ← ↑ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+
+/*---- 机器厂房 ----*/
+哨戒机枪↓ ↑ → → ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+哨戒格林炮↓ ↑ → ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+哨戒迫击炮↓ ↑ → → ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+「护卫犬」↓ ↑ ← ↑ → ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+哨戒机炮↓ ↑ → ↑ ← ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
+哨戒火箭炮↓ ↑ → → ←
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_LEFT"],["delay", 20], ["up", "KC_LCTRL"]]
+电磁干扰哨戒迫击炮↓ ↑   → ↓ →
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 20], ["up", "KC_LCTRL"]]
+爱国者外骨骼装甲← ↓ → ↑ ← ↓ ↓
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_DOWN"],["delay", 20], ["up", "KC_LCTRL"]]
+EXO-49解放者外骨骼装甲指令← ↓ → ↑ ← ↓ ↑
+[["down", "KC_LCTRL"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_RIGHT"],["delay", 40],["tap", "KC_UP"],["delay", 40],["tap", "KC_LEFT"],["delay", 40],["tap", "KC_DOWN"],["delay", 40],["tap", "KC_UP"],["delay", 20], ["up", "KC_LCTRL"]]
