@@ -1,0 +1,17 @@
+{
+    "manufacturer": "WatsonJay",
+    "keyboard_name": "editor pad",
+    "maintainer": "WatsonJay",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x6063",
+        "vid": "0xFEED"
+    },
+    "diode_direction": "ROW2COL",
+    "matrix_pins": {
+        "cols": ["GP12", "GP13", "GP14", "GP15"],
+        "rows": ["GP8", "GP9", "GP10", "GP11"]
+    }
+}
