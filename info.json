@@ -18,7 +18,26 @@
     "diode_direction": "ROW2COL",
     "matrix_pins": {
         "cols": ["GP12", "GP13", "GP14", "GP15"],
-        "rows": ["GP8", "GP9", "GP10", "GP11"],
+        "rows": ["GP8", "GP9", "GP10", "GP11", "NO_PIN", "NO_PIN"],
         "custom_lite": true
+    },
+    "features": {
+        "bootmagic": true,
+        "command": true,
+        "console": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "encoder": true
+    },
+    "encoder": {
+        "rotary": [
+            { "pin_a": "GP29", "pin_b": "GP28" },
+            { "pin_a": "GP0", "pin_b": "GP1" },
+            { "pin_a": "GP6", "pin_b": "GP7" },
+            { "pin_a": "GP8", "pin_b": "GP9" },
+            { "pin_a": "GP16", "pin_b": "GP15" },
+            { "pin_a": "GP18", "pin_b": "GP17" }
+        ]
     }
 }
