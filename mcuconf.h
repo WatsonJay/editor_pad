@@ -1,4 +1,4 @@
-// Copyright 2022 QMK
+// Copyright 2023 WatsonJay (@WatsonJay)
 // SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
