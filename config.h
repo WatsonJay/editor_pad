@@ -25,6 +25,19 @@
 #define I2C1_SDA_PIN GP0
 #define I2C1_SCL_PIN GP1
 
+/* SPI pins */
+#define SPI_DRIVER SPID0
+#define SPI_SCK_PIN GP2
+#define SPI_MOSI_PIN GP3
+
+/* LCD Configuration */
+#define LCD_CS_PIN GP5
+#define LCD_DC_PIN GP6
+#define LCD_RST_PIN GP7
+#define LCD_BL_PIN GP16
+
+#define QP_LVGL_TASK_PERIOD 40
+
 #undef RGBLIGHT_ANIMATIONS
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_LED_COUNT 10
