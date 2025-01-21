@@ -43,6 +43,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define ROW_SHIFTER  ((uint32_t)1)
 #endif
 
+// 键盘默认为 row2col
+static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
+static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
+
 static uint8_t mcp23018_errors = 0;
 
 static void expander_init(void) {
@@ -164,6 +168,7 @@ static void read_mcp_to_row(matrix_row_t current_matrix[]) {
 }
 
 void matrix_init_custom(void) {
+    expander_init();
     unselect_cols();
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
         if (row_pins[x] != NO_PIN) {
@@ -187,19 +192,8 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     if (changed) {
         memcpy(current_matrix, temp_matrix, sizeof(temp_matrix));
         if (debug_matrix) {
-            matrix_print()
+            matrix_print();
         }
     }
     return changed;
-}
-
-void matrix_print(void)
-{
-    print_matrix_header();
-
-    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-        print_hex8(row); print(": ");
-        print_matrix_row(row);
-        print("\n");
-    }
 }
