@@ -14,4 +14,6 @@ QUANTUM_PAINTER_DRIVERS += st7789_spi
 QUANTUM_PAINTER_LVGL_INTEGRATION = yes
 
 VPATH += drivers/gpio
-SRC += mcp23018.c matrix.c
+SRC += mcp23018.c \
+	   matrix.c \
+	   ./utils/keycode_string.c 

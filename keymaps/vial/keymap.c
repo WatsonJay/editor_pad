@@ -2,6 +2,7 @@
 
 #include QMK_KEYBOARD_H
 #include "qp.h"
+#include "utils/keycode_string.h"
 
 #define _LY0 0
 #define _LY1 1
@@ -144,6 +145,7 @@ void keyboard_post_init_user(void) {
     //debug_keyboard=true;
     //debug_mouse=true;
 
+    //初始化lvgl
     lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
     qp_init(lcd, QP_ROTATION_270);
     qp_rect(lcd, 0, 0, 239, 319, 0, 255, 255, true);
@@ -157,20 +159,42 @@ void matrix_scan_user(void) {
 
 }
 
+//
 bool encoder_update_user(uint8_t index, bool clockwise) {
     return false;
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    
+}
+
+// 层切换
+layer_state_t layer_state_set_user(layer_state_t state) {
+
+}
+
+// 编码器操作后
+void post_encoder_update_user(uint8_t index, bool clockwise) {
+    
+}
+
+// 键值操作后
+bool post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    
+}
 
 bool wpm_keycode_user(uint16_t keycode) {
 	return true;
 }
 
+// 休眠
 void suspend_power_down_user(void) {
     #ifdef RGB_MATRIX_ENABLE
         rgb_matrix_set_suspend_state(true);
     #endif  // RGB_MATRIX_ENABLE
 }
 
+// 唤醒
 void suspend_wakeup_init_user(void) {
     #ifdef RGB_MATRIX_ENABLE
         rgb_matrix_set_suspend_state(false);
