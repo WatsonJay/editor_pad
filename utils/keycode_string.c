@@ -327,11 +327,11 @@ static void append_keycode(uint16_t keycode) {
       return;
 
     // PDF(layer) key.
-    case QK_PERSISTENT_DEF_LAYER ... QK_PERSISTENT_DEF_LAYER_MAX:
-      append_unary_keycode(
-          PSTR("PDF"),
-          number_string(QK_PERSISTENT_DEF_LAYER_GET_LAYER(keycode), 10));
-      return;
+    // case QK_PERSISTENT_DEF_LAYER ... QK_PERSISTENT_DEF_LAYER_MAX:
+    //   append_unary_keycode(
+    //       PSTR("PDF"),
+    //       number_string(QK_PERSISTENT_DEF_LAYER_GET_LAYER(keycode), 10));
+    //   return;
 
     // Mod-tap MT(mod,kc) key. This implementation formats the MT keys where
     // one modifier is applied. For MT keys with multiple modifiers, the mod

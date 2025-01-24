@@ -165,22 +165,22 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    
+    return true;
 }
 
 // 层切换
 layer_state_t layer_state_set_user(layer_state_t state) {
-
+    return state;
 }
 
 // 编码器操作后
 void post_encoder_update_user(uint8_t index, bool clockwise) {
-    
+
 }
 
 // 键值操作后
-bool post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-    
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+
 }
 
 bool wpm_keycode_user(uint16_t keycode) {
