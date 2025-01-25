@@ -142,13 +142,13 @@ void keyboard_post_init_user(void) {
     // Customise these values to desired behaviour
     debug_enable=true;
     debug_matrix=true;
-    //debug_keyboard=true;
-    //debug_mouse=true;
+    debug_keyboard=true;
+    debug_mouse=true;
 
-    //初始化lvgl
-    lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
-    qp_init(lcd, QP_ROTATION_270);
-    qp_rect(lcd, 0, 0, 239, 319, 0, 255, 255, true);
+    // //初始化lvgl
+    // lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
+    // qp_init(lcd, QP_ROTATION_270);
+    // qp_rect(lcd, 0, 0, 239, 319, 0, 255, 255, true);
 }
 
 void matrix_init_user(void) {

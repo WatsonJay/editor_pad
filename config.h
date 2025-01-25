@@ -17,13 +17,12 @@
 
 /* Double tap the side button to enter bootloader */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
-#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP25
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U
 
 /* I2C 配置 */
 #define I2C_DRIVER I2CD0
-#define I2C1_SDA_PIN GP0
-#define I2C1_SCL_PIN GP1
+#define I2C0_SDA_PIN GP20
+#define I2C0_SCL_PIN GP21
 
 /* SPI pins */
 #define SPI_DRIVER SPID0

@@ -43,6 +43,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define ROW_SHIFTER  ((uint32_t)1)
 #endif
 
+void matrix_print1(void)
+{
+    print_matrix_header();
+
+    for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+        print_hex8(row); print(": ");
+        print_matrix_row(row);
+        print("\n");
+    }
+}
+
 // 键盘默认为 row2col
 static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
@@ -55,7 +66,6 @@ static void expander_init(void) {
 
 static void expander_init_cols(void) {
     mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTA, ALL_INPUT);
-    mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTB, ALL_INPUT);
 }
 
 static matrix_row_t expander_read_porta(void) {
@@ -191,9 +201,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool changed = memcmp(current_matrix, temp_matrix, sizeof(temp_matrix)) != 0;
     if (changed) {
         memcpy(current_matrix, temp_matrix, sizeof(temp_matrix));
-        if (debug_matrix) {
-            matrix_print();
-        }
+        matrix_print1();
     }
     return changed;
 }
