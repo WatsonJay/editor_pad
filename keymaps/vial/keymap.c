@@ -145,10 +145,13 @@ void keyboard_post_init_user(void) {
     debug_keyboard=true;
     debug_mouse=true;
 
-    // //初始化lvgl
-    // lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
-    // qp_init(lcd, QP_ROTATION_270);
-    // qp_rect(lcd, 0, 0, 239, 319, 0, 255, 255, true);
+    //初始化lvgl
+    gpio_set_pin_output(LCD_BL_PIN);
+    gpio_write_pin_high(LCD_BL_PIN);
+    lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
+    qp_init(lcd, QP_ROTATION_270);
+    qp_rect(lcd, 0, 0, 239, 319, 0, 0, 255, true);
+    qp_flush(display);
 }
 
 void matrix_init_user(void) {

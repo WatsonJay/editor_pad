@@ -21,13 +21,14 @@
 
 /* I2C 配置 */
 #define I2C_DRIVER I2CD0
-#define I2C0_SDA_PIN GP20
-#define I2C0_SCL_PIN GP21
+#define I2C1_SDA_PIN GP20
+#define I2C1_SCL_PIN GP21
 
 /* SPI pins */
 #define SPI_DRIVER SPID0
 #define SPI_SCK_PIN GP2
 #define SPI_MOSI_PIN GP3
+#define SPI_MISO_PIN NO_PIN
 
 /* LCD Configuration */
 #define LCD_CS_PIN GP5
