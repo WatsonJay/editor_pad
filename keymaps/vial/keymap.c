@@ -151,7 +151,7 @@ void keyboard_post_init_user(void) {
     lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 4, 0);
     qp_init(lcd, QP_ROTATION_270);
     qp_rect(lcd, 0, 0, 239, 319, 0, 0, 255, true);
-    qp_flush(display);
+    qp_flush(lcd);
 }
 
 void matrix_init_user(void) {

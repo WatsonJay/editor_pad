@@ -59,24 +59,34 @@ static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
 static uint8_t mcp23018_errors = 0;
-
-static void expander_init(void) {
-    mcp23018_init(MCP_ADDR);
-}
+static uint16_t mcp23018_reset_loop = 0;
+static matrix_row_t last_tarck = 0xFF;
 
 static void expander_init_cols(void) {
     mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTA, ALL_INPUT);
+    if (mcp23018_errors == 0) {
+        printf("success");
+    } else {
+        printf("fail");
+    }
 }
 
 static matrix_row_t expander_read_porta(void) {
     if (mcp23018_errors) {
+        // wait to mimic i2c interactions
+        if (++mcp23018_reset_loop > 0x1FFF) {
+            dprintf("trying to reset mcp23018\n");
+            mcp23018_reset_loop = 0;
+            mcp23018_errors     = 0;
+            expander_init_cols();
+        }
+        wait_us(100);
         return 0;
     }
 
     uint8_t ret = 0xFF;
     mcp23018_errors += !mcp23018_readPins(MCP_ADDR, mcp23018_PORTA, &ret);
-    ret = ~ret;
-
+    // print_bin_reverse8(ret);
     return ret;
 }
 
@@ -173,12 +183,20 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col,
  */
 static void read_mcp_to_row(matrix_row_t current_matrix[]) {
     matrix_row_t expand = expander_read_porta();
-    current_matrix[_EXPAND_ROW1] = expand & 0b00001111;
-    current_matrix[_EXPAND_ROW2] = expand >> 4;
+    printf("expand:");print_bin8(expand);printf("'\n");
+    if (last_tarck == 0xFF) {
+        last_tarck = expand & 0b00001111;
+    }
+    printf("last_track:");print_bin8(last_tarck);printf("\n");
+    current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
+    printf("_EXPAND_ROW1:");print_bin8(current_matrix[_EXPAND_ROW1]);printf("\n");
+    last_tarck = expand & 0b00001111;
+    current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
+    printf("_EXPAND_ROW2:");print_bin8(current_matrix[_EXPAND_ROW2]);printf("\n");
 }
 
 void matrix_init_custom(void) {
-    expander_init();
+    mcp23018_init(MCP_ADDR);
     unselect_cols();
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
         if (row_pins[x] != NO_PIN) {

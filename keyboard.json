@@ -20,6 +20,7 @@
     "matrix_pins": {
         "cols": ["GP12", "GP13", "GP14", "GP15"],
         "rows": ["GP8", "GP9", "GP10", "GP11", "NO_PIN", "NO_PIN"],
+        "custom": true,
         "custom_lite": true
     },
     "features": {
