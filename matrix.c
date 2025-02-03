@@ -25,10 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define _EXPAND_ROW1 4
 #define _EXPAND_ROW2 5
 
-#ifndef MATRIX_INPUT_PRESSED_STATE
-    #define MATRIX_INPUT_PRESSED_STATE 0
-#endif
-
 #if (MATRIX_COLS <= 8)
     #define print_matrix_header()  print("\nr/c 01234567\n")
     #define print_matrix_row(row)  print_bin_reverse8(matrix_get_row(row))
@@ -59,8 +55,8 @@ static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
 static uint8_t mcp23018_errors = 0;
-static uint16_t mcp23018_reset_loop = 0;
-static matrix_row_t last_tarck = 0xFF;
+// static uint16_t mcp23018_reset_loop = 0;
+// static matrix_row_t last_tarck = 0xFF;
 
 static void expander_init_cols(void) {
     mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTA, ALL_INPUT);
@@ -71,57 +67,30 @@ static void expander_init_cols(void) {
     }
 }
 
-static matrix_row_t expander_read_porta(void) {
-    if (mcp23018_errors) {
-        // wait to mimic i2c interactions
-        if (++mcp23018_reset_loop > 0x1FFF) {
-            dprintf("trying to reset mcp23018\n");
-            mcp23018_reset_loop = 0;
-            mcp23018_errors     = 0;
-            expander_init_cols();
-        }
-        wait_us(100);
-        return 0;
-    }
+// static matrix_row_t expander_read_porta(void) {
+//     if (mcp23018_errors) {
+//         // wait to mimic i2c interactions
+//         if (++mcp23018_reset_loop > 0x1FFF) {
+//             dprintf("trying to reset mcp23018\n");
+//             mcp23018_reset_loop = 0;
+//             mcp23018_errors     = 0;
+//             expander_init_cols();
+//         }
+//         wait_us(100);
+//         return 0;
+//     }
 
-    uint8_t ret = 0xFF;
-    mcp23018_errors += !mcp23018_readPins(MCP_ADDR, mcp23018_PORTA, &ret);
-    // print_bin_reverse8(ret);
-    return ret;
-}
-
-static inline void setPinOutput_writeLow(pin_t pin) {
-    ATOMIC_BLOCK_FORCEON {
-        setPinOutput(pin);
-        writePinLow(pin);
-    }
-}
-
-static inline void setPinOutput_writeHigh(pin_t pin) {
-    ATOMIC_BLOCK_FORCEON {
-        setPinOutput(pin);
-        writePinHigh(pin);
-    }
-}
-
-static inline void setPinInputHigh_atomic(pin_t pin) {
-    ATOMIC_BLOCK_FORCEON {
-        setPinInputHigh(pin);
-    }
-}
-
-static inline uint8_t readMatrixPin(pin_t pin) {
-    if (pin != NO_PIN) {
-        return (readPin(pin) == MATRIX_INPUT_PRESSED_STATE) ? 0 : 1;
-    } else {
-        return 1;
-    }
-}
+//     uint8_t ret = 0xFF;
+//     mcp23018_errors += !mcp23018_readPins(MCP_ADDR, mcp23018_PORTA, &ret);
+//     // print_bin_reverse8(ret);
+//     return ret;
+// }
 
 static bool select_col(uint8_t col)
 {
     if (col_pins[col] != NO_PIN) {
-        setPinOutput_writeLow(col_pins[col]);
+        gpio_set_pin_output(col_pins[col]);
+        gpio_write_pin_low(col_pins[col]);
         return true;
     }
     return false;
@@ -130,7 +99,7 @@ static bool select_col(uint8_t col)
 static bool unselect_col(uint8_t col)
 {
     if (col_pins[col] != NO_PIN) {
-        setPinInputHigh_atomic(col_pins[col]);
+        gpio_set_pin_input_high(col_pins[col]);
         return true;
     }
     return false;
@@ -138,14 +107,14 @@ static bool unselect_col(uint8_t col)
 
 static void unselect_cols(void)
 {
-    for(uint8_t x = 0; x < MATRIX_COLS; x++) {
-        if (col_pins[x] != NO_PIN) {
-            setPinInputHigh_atomic(col_pins[x]);
+    for(uint8_t col = 0; col < MATRIX_COLS; col++) {
+        if (col_pins[col] != NO_PIN) {
+            gpio_set_pin_input_high(col_pins[col]);
         }
     }
 }
 
-static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col, matrix_row_t row_shifter)
+static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
 {
     bool key_pressed = false;
     // Select col and wait for col selecton to stabilize
@@ -158,17 +127,18 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col,
     for(uint8_t row_index = 0; row_index < MATRIX_ROWS; row_index++) {
         if (row_index != _EXPAND_ROW1 && row_index != _EXPAND_ROW2 ) {
             // Check row pin state
-            if (readMatrixPin(row_pins[row_index]) == 0)
+            if (gpio_read_pin(row_pins[row_index]) == 0)
             {
                 // Pin LO, set col bit
-                current_matrix[row_index] |= row_shifter;
+                current_matrix[row_index] |= (MATRIX_ROW_SHIFTER << current_col);;
                 key_pressed = true;
             }
             else {
                 // Pin HI, clear col bit
-                current_matrix[row_index] &= ~row_shifter;
+                current_matrix[row_index] &= ~(MATRIX_ROW_SHIFTER << current_col);;
             }
         }
+
     }
 
     // Unselect col
@@ -181,26 +151,22 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col,
  * 4 GP0 GP1 GP2 GP3
  * 5 GP4 GP5 GP6 GP7
  */
-static void read_mcp_to_row(matrix_row_t current_matrix[]) {
-    matrix_row_t expand = expander_read_porta();
-    printf("expand:");print_bin8(expand);printf("'\n");
-    if (last_tarck == 0xFF) {
-        last_tarck = expand & 0b00001111;
-    }
-    printf("last_track:");print_bin8(last_tarck);printf("\n");
-    current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
-    printf("_EXPAND_ROW1:");print_bin8(current_matrix[_EXPAND_ROW1]);printf("\n");
-    last_tarck = expand & 0b00001111;
-    current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
-    printf("_EXPAND_ROW2:");print_bin8(current_matrix[_EXPAND_ROW2]);printf("\n");
-}
+// static void read_mcp_to_row(matrix_row_t current_matrix[]) {
+//     matrix_row_t expand = expander_read_porta();
+//     if (last_tarck == 0xFF) {
+//         last_tarck = expand & 0b00001111;
+//     }
+//     current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
+//     last_tarck = expand & 0b00001111;
+//     current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
+// }
 
 void matrix_init_custom(void) {
     mcp23018_init(MCP_ADDR);
     unselect_cols();
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
         if (row_pins[x] != NO_PIN) {
-            setPinInputHigh_atomic(row_pins[x]);
+            gpio_set_pin_input_high(row_pins[x]);
         }
     }
     expander_init_cols();
@@ -208,13 +174,13 @@ void matrix_init_custom(void) {
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     static matrix_row_t temp_matrix[MATRIX_ROWS] = {0};
-    matrix_row_t row_shifter = MATRIX_ROW_SHIFTER;
+
     // Set col, read rows
-    for (uint8_t current_col = 0; current_col < MATRIX_COLS; current_col++, row_shifter <<= 1) {
-        read_rows_on_col(temp_matrix, current_col, ROW_SHIFTER);
+    for (uint8_t current_col = 0; current_col < MATRIX_COLS; current_col++) {
+        read_rows_on_col(temp_matrix, current_col);
     }
     // read mcp23017
-    read_mcp_to_row(temp_matrix);
+    // read_mcp_to_row(temp_matrix);
 
     bool changed = memcmp(current_matrix, temp_matrix, sizeof(temp_matrix)) != 0;
     if (changed) {
