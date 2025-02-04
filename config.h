@@ -6,7 +6,7 @@
 #define ENABLE_COMPILE_KEYCODE
 
 /* 鼠标键配置 */
-#define MK_3_SPEED 400
+#define MK_3_SPEED
 // #define MK_KINETIC_SPEED
 // #define MOUSEKEY_DELAY 8
 // #define MOUSEKEY_INTERVAL 5
@@ -36,6 +36,8 @@
 #define LCD_DC_PIN GP6
 #define LCD_RST_PIN GP7
 #define LCD_BL_PIN GP16
+#define SPI_DIVISOR 16
+#define SPI_MODE    3
 
 #define QP_LVGL_TASK_PERIOD 40
 
