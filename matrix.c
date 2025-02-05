@@ -55,8 +55,8 @@ static const pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
 static uint8_t mcp23018_errors = 0;
-// static uint16_t mcp23018_reset_loop = 0;
-// static matrix_row_t last_tarck = 0xFF;
+static uint16_t mcp23018_reset_loop = 0;
+static matrix_row_t last_tarck = 0xFF;
 
 static void expander_init_cols(void) {
     mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTA, ALL_INPUT);
@@ -67,24 +67,24 @@ static void expander_init_cols(void) {
     }
 }
 
-// static matrix_row_t expander_read_porta(void) {
-//     if (mcp23018_errors) {
-//         // wait to mimic i2c interactions
-//         if (++mcp23018_reset_loop > 0x1FFF) {
-//             dprintf("trying to reset mcp23018\n");
-//             mcp23018_reset_loop = 0;
-//             mcp23018_errors     = 0;
-//             expander_init_cols();
-//         }
-//         wait_us(100);
-//         return 0;
-//     }
+static matrix_row_t expander_read_porta(void) {
+    if (mcp23018_errors) {
+        // wait to mimic i2c interactions
+        if (++mcp23018_reset_loop > 0x1FFF) {
+            dprintf("trying to reset mcp23018\n");
+            mcp23018_reset_loop = 0;
+            mcp23018_errors     = 0;
+            expander_init_cols();
+        }
+        wait_us(100);
+        return 0;
+    }
 
-//     uint8_t ret = 0xFF;
-//     mcp23018_errors += !mcp23018_readPins(MCP_ADDR, mcp23018_PORTA, &ret);
-//     // print_bin_reverse8(ret);
-//     return ret;
-// }
+    uint8_t ret = 0xFF;
+    mcp23018_errors += !mcp23018_readPins(MCP_ADDR, mcp23018_PORTA, &ret);
+    // print_bin_reverse8(ret);
+    return ret;
+}
 
 static bool select_col(uint8_t col)
 {
@@ -151,15 +151,15 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
  * 4 GP0 GP1 GP2 GP3
  * 5 GP4 GP5 GP6 GP7
  */
-// static void read_mcp_to_row(matrix_row_t current_matrix[]) {
-//     matrix_row_t expand = expander_read_porta();
-//     if (last_tarck == 0xFF) {
-//         last_tarck = expand & 0b00001111;
-//     }
-//     current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
-//     last_tarck = expand & 0b00001111;
-//     current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
-// }
+static void read_mcp_to_row(matrix_row_t current_matrix[]) {
+    matrix_row_t expand = expander_read_porta();
+    if (last_tarck == 0xFF) {
+        last_tarck = expand & 0b00001111;
+    }
+    current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
+    last_tarck = expand & 0b00001111;
+    current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
+}
 
 void matrix_init_custom(void) {
     mcp23018_init(MCP_ADDR);
@@ -180,7 +180,7 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         read_rows_on_col(temp_matrix, current_col);
     }
     // read mcp23017
-    // read_mcp_to_row(temp_matrix);
+    read_mcp_to_row(temp_matrix);
 
     bool changed = memcmp(current_matrix, temp_matrix, sizeof(temp_matrix)) != 0;
     if (changed) {
