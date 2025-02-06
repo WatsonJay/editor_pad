@@ -10,7 +10,9 @@ GRAVE_ESC_ENABLE = yes
 DYNAMIC_MACRO_ENABLE = yes
 
 I2C_DRIVER_REQUIRED = yes
-DEBOUNCE_TYPE = asym_eager_defer_pk
+
+POINTING_DEVICE_ENABLE = yes
+POINTING_DEVICE_DRIVER = custom
 
 QUANTUM_PAINTER_ENABLE = yes
 QUANTUM_PAINTER_DRIVERS += st7789_spi
@@ -19,5 +21,6 @@ QUANTUM_PAINTER_DRIVERS += st7789_spi
 VPATH += drivers/gpio
 SRC += mcp23018.c \
 	   matrix.c \
-	   ./utils/keycode_string.c
+	   ./utils/keycode_string.c \
+	   ./drivers/mcp23017_point_device.c \
 
