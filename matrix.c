@@ -23,7 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MCP_ADDR 0x20
 
 #define _EXPAND_ROW1 4
-#define _EXPAND_ROW2 5
 
 #if (MATRIX_COLS <= 8)
     #define print_matrix_header()  print("\nr/c 01234567\n")
@@ -56,7 +55,7 @@ static const pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
 static uint8_t mcp23018_errors = 0;
 static uint16_t mcp23018_reset_loop = 0;
-static matrix_row_t last_tarck = 0xFF;
+// static matrix_row_t last_tarck = 0xFF;
 
 static void expander_init_cols(void) {
     mcp23018_errors += !mcp23018_set_config(MCP_ADDR, mcp23018_PORTA, ALL_INPUT);
@@ -153,12 +152,12 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
  */
 static void read_mcp_to_row(matrix_row_t current_matrix[]) {
     matrix_row_t expand = expander_read_porta();
-    if (last_tarck == 0xFF) {
-        last_tarck = expand & 0b00001111;
-    }
-    current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
-    last_tarck = expand & 0b00001111;
-    current_matrix[_EXPAND_ROW2] = (~ (expand & 0b11110000)) >> 4;
+    // if (last_tarck == 0xFF) {
+    //     last_tarck = expand & 0b00001111;
+    // }
+    // current_matrix[_EXPAND_ROW1] = (expand & 0b00001111) ^ last_tarck;
+    // last_tarck = expand & 0b00001111;
+    current_matrix[_EXPAND_ROW1] = (~ (expand & 0b11110000)) >> 4;
 }
 
 void matrix_init_custom(void) {
