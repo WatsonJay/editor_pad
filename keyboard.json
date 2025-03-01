@@ -19,7 +19,7 @@
     "diode_direction": "ROW2COL",
     "matrix_pins": {
         "cols": ["GP12", "GP13", "GP14", "GP15"],
-        "rows": ["GP8", "GP9", "GP10", "GP11", "NO_PIN"],
+        "rows": ["GP8", "GP9", "GP10", "GP11", "NO_PIN", "NO_PIN"],
         "custom": true,
         "custom_lite": true
     },
@@ -89,7 +89,12 @@
                 {"matrix": [4, 0], "x": 0, "y": 4},
                 {"matrix": [4, 1], "x": 1, "y": 4},
                 {"matrix": [4, 2], "x": 2, "y": 4},
-                {"matrix": [4, 3], "x": 3, "y": 4}
+                {"matrix": [4, 3], "x": 3, "y": 4},
+
+                {"matrix": [5, 0], "x": 0, "y": 5},
+                {"matrix": [5, 1], "x": 1, "y": 5},
+                {"matrix": [5, 2], "x": 2, "y": 5},
+                {"matrix": [5, 3], "x": 3, "y": 5}
             ]
         }
     }
