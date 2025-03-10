@@ -150,10 +150,10 @@ void keyboard_post_init_user(void) {
     gpio_write_pin_high(LCD_BL_PIN);
     lcd = qp_st7789_make_spi_device(240, 320, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, SPI_DIVISOR, SPI_MODE);
     qp_init(lcd, QP_ROTATION_0);
-    qp_power(lcd, true);
-    qp_clear(lcd);
-    qp_rect(lcd, 29, 10, 124, 211, 0, 255, 255, true);
-    qp_flush(lcd);
+
+    if (qp_lvgl_attach(display)) {     // Attach LVGL to the display
+
+    }
 }
 
 void matrix_init_user(void) {
